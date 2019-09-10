@@ -22,4 +22,9 @@ RSpec.describe Medicine, type: :model do
       expect(subject.total).to eql 10.0
     end
   end
+
+  describe 'validations' do
+    it { should validate_presence_of(:value) }
+    it { should validate_presence_of(:quantity) }
+  end
 end
