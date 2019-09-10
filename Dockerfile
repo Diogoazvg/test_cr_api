@@ -1,5 +1,5 @@
 FROM ruby:2.4.0
-RUN apt-get update -qq && apt-get install -y nodejs sqlite3 libsqlite3-dev
+RUN apt-get update -qq && apt-get install -y apt-utils nodejs postgresql-client && apt-get update && apt-get install -y --no-install-recommends
 RUN mkdir /myapp
 WORKDIR /myapp
 
@@ -7,8 +7,6 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 COPY . /myapp
-
-RUN mkdir -p /var/www/html/plugins-enabled/
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

@@ -2,11 +2,11 @@ version: '3'
 
 services:
   db:
-    image: nouchka/sqlite3:latest
-    stdin_open: true
-    tty: true
+    image: postgres
     volumes:
-      - ./db/:/root/db/
+      - db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
     networks:
       - back
 
@@ -28,9 +28,6 @@ services:
     restart: unless-stopped
     ports:
       - 8080:8080
-    volumes:
-      - ./docker/login-password-less.php:/var/www/html/plugins-enabled/login-password-less.php
-      - ./docker/login-ip.php:/var/www/html/plugins-enabled/login-password-ip.php
     networks:
       - back
     depends_on:
