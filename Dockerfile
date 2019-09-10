@@ -1,5 +1,5 @@
 FROM ruby:2.4.0
-RUN apt-get update -qq && apt-get install -y nodejs sqlite3 libsqlite3-dev
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client && apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
