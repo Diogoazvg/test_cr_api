@@ -12,6 +12,9 @@
 #
 
 class Medicine < ApplicationRecord
+
+  validates :value, presence: true
+  validates :quantity, presence: true
   def total
     value * quantity
   end
