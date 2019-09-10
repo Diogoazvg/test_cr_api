@@ -1,8 +1,7 @@
 FROM ruby:2.4.0
-RUN apt-get update -qq && apt-get install -y apt-utils nodejs postgresql-client && apt-get update && apt-get install -y --no-install-recommends
+RUN apt-get update -qq && apt-get install -y nodejs sqlite3 libsqlite3-dev
 RUN mkdir /myapp
 WORKDIR /myapp
-
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
@@ -14,6 +13,7 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-
+RUN chown -R $USER:$USER .
+USER $USER
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
