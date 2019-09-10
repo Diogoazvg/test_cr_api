@@ -10,4 +10,7 @@
 
 class Customer < ApplicationRecord
   has_many :carts
+  def name_titleize
+    name.titleize
+  end
 end
