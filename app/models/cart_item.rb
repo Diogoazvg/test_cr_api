@@ -16,8 +16,8 @@ class CartItem < ApplicationRecord
   belongs_to :medicine
 
   def add_intem_cart
-    unless medicine.stock < 1
-      medicine.stock -= 1
+    unless medicine.stock < quantity
+      medicine.stock -= quantity
       medicine.save
       else
         raise ActiveRecord::Rollback, "Stock cannot be less than 1"

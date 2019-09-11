@@ -6,7 +6,6 @@ FactoryBot.define do
 
   factory :cart, class: Cart do
     customer_id {1}
-    # id {2}
   end
 
   factory :medicine, class: Medicine do
@@ -14,13 +13,12 @@ FactoryBot.define do
     value {5.00}
     quantity {8}
     stock {122}
-    # id {1}
   end
 
   factory :cart_item, class: CartItem do
     medicine_id {1}
     cart_id {1}
-    quantity {nil}
+    quantity {12}
     medicine
     cart
   end
