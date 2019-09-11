@@ -11,6 +11,7 @@
 #
 
 class CartItem < ApplicationRecord
+  after_save :add_intem_cart
   belongs_to :cart
   belongs_to :medicine
 end
