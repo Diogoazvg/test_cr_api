@@ -9,7 +9,7 @@
 #
 
 class Customer < ApplicationRecord
-  has_many :carts
+  has_one :cart
   def name_titleize
     name.titleize
   end

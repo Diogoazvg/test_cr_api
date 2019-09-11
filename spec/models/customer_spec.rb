@@ -20,6 +20,6 @@ RSpec.describe Customer, type: :model do
   end
 
   context 'relationships' do
-    it { is_expected.to have_many :carts }
+    it { is_expected.to have_one :cart }
   end
 end
