@@ -11,7 +11,16 @@
 #
 
 class CartItem < ApplicationRecord
-  after_save :add_intem_cart
+  before_create :add_intem_cart
   belongs_to :cart
   belongs_to :medicine
+
+  def add_intem_cart
+    unless medicine.stock < 1
+      medicine.stock -= 1
+      medicine.save
+      else
+        raise ActiveRecord::Rollback, "Stock cannot be less than 1"
+    end
+  end
 end
