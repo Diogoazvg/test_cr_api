@@ -13,10 +13,17 @@
 require 'rails_helper'
 
 RSpec.describe CartItem, type: :model do
-  context 'cart_item' do
+  context 'Item with stock positive' do
     let(:cart_item)  { build(:cart_item)}
-    it 'should return save' do
+    it 'save item to cart' do
       expect(cart_item.save).to eq(true)
+    end
+  end
+
+  context 'Item with stock negative' do
+    let(:cart_item)  { build(:cart_item_bigger_than_stock)}
+    it 'dont save item to cart' do
+      expect(cart_item.save).to eq(nil)
     end
   end
 

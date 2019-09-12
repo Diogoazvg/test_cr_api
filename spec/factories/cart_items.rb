@@ -1,24 +1,14 @@
 FactoryBot.define do
-  factory :customer_item, class: Customer do
-    name { "john" }
-    id {1}
-  end
-
-  factory :cart, class: Cart do
-    customer_id {1}
-  end
-
-  factory :medicine, class: Medicine do
-    name {"Aspirina"}
-    value {5.00}
-    quantity {8}
-    stock {122}
-  end
+  # number = Faker::Number.number(digits: 4)
 
   factory :cart_item, class: CartItem do
-    medicine_id {1}
-    cart_id {1}
-    quantity {12}
+    quantity {Faker::Number.within(range: 1..200)}
+    medicine
+    cart
+  end
+
+  factory :cart_item_bigger_than_stock, class: CartItem do
+    quantity {Faker::Number.within(range: 201..9999)}
     medicine
     cart
   end

@@ -11,4 +11,12 @@
 class Cart < ApplicationRecord
   belongs_to :customer
   has_many :cart_items
+
+  def total
+    total = []
+    cart_items.each do |item|
+      total << item.quantity * item.medicine.value
+    end
+    total.sum
+  end
 end
