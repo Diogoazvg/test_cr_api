@@ -16,6 +16,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'faker', '~> 2.2', '>= 2.2.2'
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
+  gem 'simplecov', '~> 0.17.0'
 end
 
 group :development do
