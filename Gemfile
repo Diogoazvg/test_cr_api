@@ -24,4 +24,5 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', '~> 2.7', '>= 2.7.5'
+  gem 'byebug', '~> 11.0', '>= 11.0.1'
 end
