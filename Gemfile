@@ -6,7 +6,7 @@ ruby '2.4.0'
 gem 'rails', '~> 5.2.3'
 # gem 'sqlite3'
 gem 'pg', '~> 1.1', '>= 1.1.4'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 5.6'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
